@@ -1,0 +1,118 @@
+# Trime custom settings
+# encoding: utf-8
+
+patch:
+  style/+:
+    key_border: 1 #边框线宽
+    keyboard_padding_bottom: 15 #竖屏底边距
+    horizontal_gap: 7 #按键竖缝
+    vertical_gap: 7 #按键横缝
+    key_press_offset_x: 2 #按下横向偏移
+    key_press_offset_y: 2 #按下纵向偏移
+  preset_color_schemes/default/+:
+    key_border_color: 0xff000000 #按键边框
+    hilited_candidate_back_color: 0xff0080ff
+    hilited_candidate_text_color: 0xffffffff
+    candidate_border_color: 0xff0080ff #候选边框
+  style/candidate_corner_radius: 10 #候选背景块圆角半径
+  window:
+    insets:                    #窗口内边距
+      vertical: 4              #纵向内边距（整数）
+      horizontal: 4           #横向内边距（整数）
+    item_padding:            #候选项内边距
+      vertical: 7              #纵向内边距（整数）
+      horizontal: 11          #横向内边距（整数）
+    corner_radius: 11         #圆角半径（浮点）
+    alpha: 0.9                #透明度（0-1，浮点）
+    border: 1                 #边框宽度（整数）
+    shadow: 3                #阴影半径（浮点）
+    foreground:               #前景样式
+      label_font_size: 13      #序号字体大小（浮点）
+      text_font_size: 20       #文字字体大小（浮点）
+      comment_font_size: 10  #注释字体大小（浮点）
+
+      
+  tool_bar/+:
+    undo: &undo
+      foreground:
+        style: "ic@undo"
+      action: undo
+    redo: &redo
+      foreground:
+        style: "ic@redo"
+      action: redo
+    buttons/+: 
+      - *redo
+      - *undo
+
+  preset_keyboards/+:
+    wubi86_double_key:
+      ascii_mode: 0
+      ascii_keyboard: letter
+      author: "讲文明"
+      height: 40
+      label_transform: uppercase # 大写标签 小写none
+      keys: 
+        #第一行
+        - {click: q, label: "Q   W", label_symbol: "_", popup: [Q, "_", W], swipe_right: w, swipe_down: 1, hint: 1, key_text_size: 22}
+        - {click: e, label: "E   R", label_symbol: "～", popup: ["～", R, E], swipe_right: r, swipe_down: 2, hint: 2, key_text_size: 22}
+        - {click: t, label: "T   Y", label_symbol: "…", popup: ["…", Y, T], swipe_up: Time, swipe_right: y, swipe_down: 3, hint: 3, key_text_size: 22}
+        - {click: u, label: "U   I", label_symbol: ";", popup: [";", I, U], swipe_right: i, swipe_down: 4, hint: 4, key_text_size: 22}
+        - {click: o, label: "O   P", label_symbol: "、", popup: [P, "、", O], swipe_right: p, swipe_down: 5, hint: 5, key_text_size: 22}
+        #第二行
+        - {width: 5}
+        - {click: a, label: "A   S", label_symbol: "( )", popup: [A, "(){Left}", S], swipe_right: s, swipe_down: 6, hint: 6, width: 18, key_text_size: 22}
+        - {click: d, label: "D   F", label_symbol: "\\", popup: ["\\", F, D], swipe_up: Date, swipe_right: f, swipe_down: 7, hint: 7, width: 18, key_text_size: 22}
+        - {click: g, label: "G   H", label_symbol: '"', popup: ['"', H, G], swipe_right: h, swipe_down: 8, hint: 8, width: 18, key_text_size: 22}
+        - {click: j, label: "J   K", label_symbol: "/", popup: ["/{Return}", K, J], swipe_right: k, swipe_down: 9, hint: 9, width: 18, key_text_size: 22}
+        - {click: l, label_symbol: "《》", popup: [Ⅰ, "《》{Left}", L], swipe_down: 0, hint: 0, width: 17, key_text_size: 22}
+        - {width: 6}
+        #第三行
+        - {click: Shift_L, composing: delimiter, swipe_up: RepeatCommit, swipe_down: Tab1, width: 14, key_back_color: 0xffacb2c2, hilited_key_back_color: 0xffffffff}
+        - {click: x, label: "Z   X", label_symbol: "@", popup: ["@", X, Z], swipe_left: z, swipe_up: select_cut, swipe_down: cut, hint: "✁", width: 18, key_text_size: 22}
+        - {click: c, label: "C   V", label_symbol: "#", popup: ["#", V, C], swipe_up: select_copy, swipe_right: v, swipe_down: copy, hint: "❐", width: 18, key_text_size: 22}
+        - {click: b, label: "B   N", label_symbol: "%", popup: ["%", N, B], swipe_up: clipboard_window, swipe_right: n, swipe_down: paste, hint: "⎗", width: 18, key_text_size: 22}
+        - {click: m, label_symbol: ":", popup: [":", Ⅱ, M], swipe_down: select_all, hint: "☑", width: 16, key_text_size: 22}
+        - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, key_back_color: 0xffacb2c2, hilited_key_back_color: 0xffffffff, width: 16}
+        #第四行
+        - {click: Keyboard_number, popup: [Menu, Theme_settings], key_back_color: 0xffacb2c2, hilited_key_back_color: 0xffffffff, width: 14, key_text_size: 19}
+        - {click: ",", label: " ，️", long_click: "?", width: 14, key_text_size: 19}
+        - {click: space, long_click: Keyboard_defaulten, swipe_up: Up, swipe_down: Down, swipe_left: Left, swipe_right: Right, width: 42}
+        - {click: ".", label: " 。", long_click: "!", width: 14, key_text_size: 19}
+        - {click: Return, long_click: Bing, key_back_color: 0xff3266a0, hilited_key_back_color: 0xffffffff, key_text_color: 0xffffffff, hilited_key_text_color: 0xffffffff, width: 16}
+      lock: true
+      name: "五笔86双键"
+      width: 20
+    pinyin_jiugong:
+      ascii_mode: 0
+      author: "Uncle光 <467896722@qq.com>"
+      height: 40
+      keys:
+        #第一行
+        - {click: ":", long_click: ";", width: 15}
+        - {click: 1, send_bindings: false, label: "分词", composing: "'", long_click: "`"}
+        - {click: 2, label: abc, key_text_size: 19}
+        - {click: 3, label: def, key_text_size: 19}
+        - {click: Keyboard_number, composing: Escape, popup: [Menu, Theme_settings], key_back_color: 0xffacb2c2, hilited_key_back_color: 0xffffffff, width: 16}
+        #第二行
+        - {click: "!", long_click: "\\", width: 15}
+        - {click: 4, label: ghi, long_click: Home, key_text_size: 19}
+        - {click: 5, label: jkl, long_click: select_all, key_text_size: 19}
+        - {click: 6, label: mno, long_click: End, key_text_size: 19}
+        - {click: Keyboard_defaulten, key_back_color: 0xffacb2c2, hilited_key_back_color: 0xffffffff, width: 16, key_text_size: 19}
+        #第三行
+        - {click: "?", long_click: "/", width: 15}
+        - {click: 7, label: pqrs, long_click: copy, key_text_size: 19}
+        - {click: 8, label: tuv, long_click: paste, key_text_size: 19}
+        - {click: 9, label: wxyz, long_click: cut, key_text_size: 19}
+        - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, key_back_color: 0xffacb2c2, hilited_key_back_color: 0xffffffff, width: 16}
+        #第四行
+        - {click: ",", long_click: "{}{Left}", width: 15}
+        - {click: ".", long_click: "(){Left}", swipe_left: "(", swipe_right: ")"}
+        - {click: space1, swipe_up: Up, swipe_down: Down}
+        - {click: 0, long_click: "[]{Left}", swipe_left: "[", swipe_right: "]"}
+        - {click: Return, long_click: Bing, key_back_color: 0xff3266a0, hilited_key_back_color: 0xffffffff, key_text_color: 0xffffffff, hilited_key_text_color: 0xffffffff, width: 16}
+      lock: true
+      name: "拼音九宫"
+      width: 23
+  preset_keyboards/letter/keys/@33/long_click: Keyboard_last_lock
