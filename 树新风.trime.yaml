@@ -88,14 +88,14 @@ fallback_colors:   #后备配色
 style:
 #候选
   candidate_text_size: 20 #候选字号
-  candidate_padding: 14 #候选项内边距
+  candidate_padding: 15 #候选项内边距
   candidate_spacing: 1 #候选间隔
-  candidate_view_height: 26 #候选区高度
-  candidate_corner_radius: 10 #候选背景块圆角半径
-  candidate_text_vertical_bias: 0.4 #候选垂直偏移
+  candidate_view_height: 29 #候选区高度
+  candidate_corner_radius: 11 #候选背景块圆角半径
+  candidate_text_vertical_bias: 0.5 #候选垂直偏移
 #提示
-  comment_text_size: 9 #提示字号
-  comment_height: 14 #（调节候选上下空间）
+  comment_text_size: 8 #提示字号
+  comment_height: 12 #（调节候选上下空间）
   comment_position: overlay #位置：right/top/overlay
   comment_vertical_bias: 1.0 #提示垂直偏移
 #按键
@@ -125,7 +125,7 @@ style:
   keyboard_padding_land_bottom: 8 #横屏底边距
   keyboard_padding: 0 #竖屏两侧边距
   keyboard_padding_land: 70 #横屏两侧边距
-#字体
+#[字体]
   key_font: [iconfont.ttf] #键盘字体
   symbol_font: [iconfont.ttf] #符号字体
   popup_font: [iconfont.ttf] #气泡字体
@@ -147,17 +147,17 @@ preedit: #预编辑文本视图参数
 #悬浮窗
 window:
   insets: #窗口内边距
-    vertical: 5 #纵向（整数）
-    horizontal: 5 #横向（整数）
+    vertical: 4 #纵向（整数）
+    horizontal: 4 #横向（整数）
   item_padding: #候选项内边距
-    vertical: 5 #纵向（整数）
+    vertical: 4 #纵向（整数）
     horizontal: 11 #横向（整数）
   foreground: #前景样式
     label_font_size: 13 #序号字体大小（浮点）
     text_font_size: 20 #文字字体大小（浮点）
     comment_font_size: 10 #注释字体大小（浮点）
 #  min_width: 0     #最小宽度（整数）
-  corner_radius: 11 #圆角半径（浮点）
+  corner_radius: 12 #圆角半径（浮点）
   alpha: 0.95 #透明度（0-1，浮点）
   border: 1 #边框宽度（整数）
   shadow: 3.3 #阴影半径（浮点）
@@ -187,7 +187,7 @@ tool_bar:
     long_press_action: Settings #按钮长按事件
 #隐藏键盘
   hide: &hide
-    size: [55, 40]
+    size: [53, 40]
     background:
       type: rectangle
       corner_radius: 8
@@ -202,14 +202,14 @@ tool_bar:
     action: Hide
 #恢复
   redo: &redo
-    size: [42, 31]
+    size: [42, 40]
     background:
       type: rectangle
       corner_radius: 8
       normal: *color7
       highlight: *color3
     foreground:
-      style: "r1.png"
+      style: ""
       padding: 8
       font_size: 22
     action: redo
@@ -269,19 +269,19 @@ tool_bar:
     action: Keyboard_ascii
 #撤消
   undo: &undo
-    size: [42, 31]
+    size: [42, 40]
     background:
       type: rectangle
       corner_radius: 8
       normal: *color7
       highlight: *color3
     foreground:
-      style: "u1.png"
+      style: ""
       padding: 8
       font_size: 22
     action: undo
 #右侧按钮列表（从右向左排列）
-  buttons: [*hide, *redo, *layout, *bqfh3, *clip, *toggle, *undo]
+  buttons: [*hide, *layout, *bqfh3, *clip, *toggle, *redo, *undo]
 
 #键盘布局
 preset_keyboards:
