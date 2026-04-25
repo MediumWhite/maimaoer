@@ -4,4 +4,6 @@
 
 —九宫拼音：使用袖珍九宫拼音方案
 
-—五笔双键：参照trime wiki文末案例方案配置，添加了字根拆分滤镜、万象手动排序候选词（万象github.com/amzxyz/rime_wanxiang）
+—五笔双键：参照trime wiki文末案例方案配置
+
+—附加字根拆分滤镜、万象手动排序候选词lua（https://amzxyz.github.io/）
