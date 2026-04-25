@@ -150,14 +150,14 @@ window:
     vertical: 4 #纵向（整数）
     horizontal: 4 #横向（整数）
   item_padding: #候选项内边距
-    vertical: 4 #纵向（整数）
+    vertical: 5 #纵向（整数）
     horizontal: 11 #横向（整数）
   foreground: #前景样式
     label_font_size: 13 #序号字体大小（浮点）
     text_font_size: 20 #文字字体大小（浮点）
     comment_font_size: 10 #注释字体大小（浮点）
-#  min_width: 0     #最小宽度（整数）
-  corner_radius: 12 #圆角半径（浮点）
+  # min_width: 0     #最小宽度（整数）
+  corner_radius: 13 #圆角半径（浮点）
   alpha: 0.95 #透明度（0-1，浮点）
   border: 1 #边框宽度（整数）
   shadow: 3.3 #阴影半径（浮点）
@@ -200,19 +200,6 @@ tool_bar:
       padding: 1
       font_size: 32
     action: Hide
-#恢复
-  redo: &redo
-    size: [42, 40]
-    background:
-      type: rectangle
-      corner_radius: 8
-      normal: *color7
-      highlight: *color3
-    foreground:
-      style: ""
-      padding: 8
-      font_size: 22
-    action: redo
 #键盘布局&方案菜单
   layout: &layout
     size: [42, 40]
@@ -228,7 +215,7 @@ tool_bar:
     action: Keyboard_layout
     long_press_action: Menu
 #符号&扩展符号
-  bqfh3: &bqfh3
+  yingfu: &yingfu
     size: [42, 40]
     background:
       type: rectangle
@@ -239,7 +226,7 @@ tool_bar:
       style: "\uE018"
       padding: 9
       font_size: 20
-    action: Keyboard_bqfh3
+    action: Keyboard_yingfu
     long_press_action: Keyboard_symbols
 #剪贴板
   clip: &clip
@@ -264,9 +251,22 @@ tool_bar:
       highlight: *color3
     foreground:
       style: "\uE076"
-      padding: 8
-      font_size: 23
+      padding: 9
+      font_size: 22
     action: Keyboard_ascii
+#恢复
+  redo: &redo
+    size: [42, 40]
+    background:
+      type: rectangle
+      corner_radius: 8
+      normal: *color7
+      highlight: *color3
+    foreground:
+      style: ""
+      padding: 8
+      font_size: 22
+    action: redo
 #撤消
   undo: &undo
     size: [42, 40]
@@ -281,7 +281,7 @@ tool_bar:
       font_size: 22
     action: undo
 #右侧按钮列表（从右向左排列）
-  buttons: [*hide, *layout, *bqfh3, *clip, *toggle, *redo, *undo]
+  buttons: [*hide, *layout, *yingfu, *clip, *toggle, *redo, *undo]
 
 #键盘布局
 preset_keyboards:
@@ -516,28 +516,175 @@ preset_keyboards:
       - {click: space1, width: 20}
       - {click: BackSpace, composing: Escape, swipe_left: Clear, width: 20}
       - {click: Return1, width: 20, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc}
-    name: "各种符号"
+    name: "扩展符号"
     width: 12.5
-  bqfh1:
+
+  zhongfu1:
     ascii_mode: 0
     author: "风花絮"
     height: 30
-    keys: [{click: "，"}, {click: "。"}, {click: "？"}, {click: "！"}, {click: "："}, {click: "、"}, {click: "……"}, {click: "；"}, {click: Keyboard_symbols, key_text_size: 16}, {click: Keyboard_bqfh2, key_text_size: 14}, {click: "+"}, {click: "-"}, {click: "="}, {click: "·"}, {click: "｀"}, {click: "#"}, {click: "￥"}, {click: "%"}, {click: "ˉ"}, {click: "——"}, {click: "“”{Left}"}, {click: "‘’{Left}"}, {click: "ˆˇ{Left}"}, {click: "（）{Left}"}, {click: "〈〉{Left}"}, {click: "‹›{Left}"}, {click: "｛｝{Left}"}, {click: "『』{Left}"}, {click: "〖〗{Left}"}, {click: "［］{Left}"}, {click: "《》{Left}"}, {click: "〔〕{Left}"}, {click: "{}{Left}"}, {click: "「」{Left}"}, {click: "【】{Left}"}, {click: "～"}, {click: "@{Return}"}, {click: "*{Return}"}, {click: "&{Return}"}, {click: "﹏"}, {click: "﹋"}, {click: "﹌"}, {click: "︴"}, {click: "々"}, {click: "ᥬᩤ{Left}"}, {click: "｜"}, {click: "‖"}, {click: "‐"}, {click: "￣"}, {click: "¯"}, {click: Keyboard_default, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}, {click: Keyboard_bqsy1, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}, {click: Keyboard_bqsy2, width: 20}, {click: Keyboard_number, width: 20}, {click: BackSpace, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}]
-    name: "表情键1"
+    keys: 
+      - {click: "，"}
+      - {click: "。"}
+      - {click: "？"}
+      - {click: "！"}
+      - {click: "："}
+      - {click: "、"}
+      - {click: "……"}
+      - {click: "；"}
+      - {click: Keyboard_symbols, key_text_size: 16}
+      - {click: Keyboard_zhongfu2, key_text_size: 14}
+      - {click: "+"}
+      - {click: "-"}
+      - {click: "="}
+      - {click: "·"}
+      - {click: "｀"}
+      - {click: "#"}
+      - {click: "￥"}
+      - {click: "%"}
+      - {click: "ˉ"}
+      - {click: "——"}
+      - {click: "“”{Left}"}
+      - {click: "‘’{Left}"}
+      - {click: "ˆˇ{Left}"}
+      - {click: "（）{Left}"}
+      - {click: "〈〉{Left}"}
+      - {click: "‹›{Left}"}
+      - {click: "｛｝{Left}"}
+      - {click: "『』{Left}"}
+      - {click: "〖〗{Left}"}
+      - {click: "［］{Left}"}
+      - {click: "《》{Left}"}
+      - {click: "〔〕{Left}"}
+      - {click: "{}{Left}"}
+      - {click: "「」{Left}"}
+      - {click: "【】{Left}"}
+      - {click: "～"}
+      - {click: "@{Return}"}
+      - {click: "*{Return}"}
+      - {click: "&{Return}"}
+      - {click: "﹏"}
+      - {click: "﹋"}
+      - {click: "﹌"}
+      - {click: "︴"}
+      - {click: "々"}
+      - {click: "ᥬᩤ{Left}"}
+      - {click: "｜"}
+      - {click: "‖"}
+      - {click: "‐"}
+      - {click: "￣"}
+      - {click: "¯"}
+      - {click: Keyboard_default, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Buttons_zhongfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Buttons_yingfu, width: 20}
+      - {click: Keyboard_number, width: 20}
+      - {click: BackSpace, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+    name: "中符1"
     width: 10
-  bqfh2:
+  zhongfu2:
     ascii_mode: 0
     author: "风花絮"
     height: 30
-    keys: [{click: "‰"}, {click: "‱"}, {click: "℉"}, {click: "€"}, {click: "£"}, {click: "¢"}, {click: "¤"}, {click: "₩"}, {click: Keyboard_symbols, key_text_size: 16}, {click: Keyboard_bqfh1, key_text_size: 14}, {click: "―"}, {click: "﹨"}, {click: "˜"}, {click: "﹍"}, {click: "﹎"}, {click: "〜"}, {click: "〰"}, {click: "°"}, {click: "℃"}, {click: "〝〞"}, {click: "﹙﹚{Left}", key_text_size: 14}, {click: "﹛﹜{Left}", key_text_size: 14}, {click: "﹤﹥{Left}", key_text_size: 14}, {click: "〘〙{Left}", key_text_size: 14}, {click: "︵︶{Left}", key_text_size: 14}, {click: "︷︸{Left}", key_text_size: 14}, {click: "︿﹀{Left}", key_text_size: 14}, {click: "︽︾{Left}", key_text_size: 14}, {click: "︹︺{Left}", key_text_size: 14}, {click: "︻︼{Left}", key_text_size: 14}, {click: "﹃﹄{Left}", key_text_size: 14}, {click: "〟"}, {click: "〃"}, {click: "﹐"}, {click: "﹒"}, {click: "﹑"}, {click: "﹖"}, {click: "﹗"}, {click: "﹘"}, {click: "﹔"}, {click: "﹕"}, {click: "﹪"}, {click: "﹢"}, {click: "﹣"}, {click: "﹦"}, {click: "﹫"}, {click: "﹠"}, {click: "﹩"}, {click: "﹡"}, {click: "﹟"}, {click: Keyboard_default, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}, {click: Keyboard_bqsy1, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}, {click: Keyboard_bqsy2, width: 20}, {click: Keyboard_number, width: 20}, {click: BackSpace, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}]
-    name: "表情键2"
+    keys:
+      - {click: "‰"}
+      - {click: "‱"}
+      - {click: "℉"}
+      - {click: "€"}
+      - {click: "£"}
+      - {click: "¢"}
+      - {click: "¤"}
+      - {click: "₩"}
+      - {click: Keyboard_symbols, key_text_size: 16}
+      - {click: Keyboard_zhongfu1, key_text_size: 14}
+      - {click: "―"}
+      - {click: "﹨"}
+      - {click: "˜"}
+      - {click: "﹍"}
+      - {click: "﹎"}
+      - {click: "〜"}
+      - {click: "〰"}
+      - {click: "°"}
+      - {click: "℃"}
+      - {click: "〝〞"}
+      - {click: "﹙﹚{Left}", key_text_size: 14}
+      - {click: "﹛﹜{Left}", key_text_size: 14}
+      - {click: "﹤﹥{Left}", key_text_size: 14}
+      - {click: "〘〙{Left}", key_text_size: 14}
+      - {click: "︵︶{Left}", key_text_size: 14}
+      - {click: "︷︸{Left}", key_text_size: 14}
+      - {click: "︿﹀{Left}", key_text_size: 14}
+      - {click: "︽︾{Left}", key_text_size: 14}
+      - {click: "︹︺{Left}", key_text_size: 14}
+      - {click: "︻︼{Left}", key_text_size: 14}
+      - {click: "﹃﹄{Left}", key_text_size: 14}
+      - {click: "〟"}
+      - {click: "〃"}
+      - {click: "﹐"}
+      - {click: "﹒"}
+      - {click: "﹑"}
+      - {click: "﹖"}
+      - {click: "﹗"}
+      - {click: "﹘"}
+      - {click: "﹔"}
+      - {click: "﹕"}
+      - {click: "﹪"}
+      - {click: "﹢"}
+      - {click: "﹣"}
+      - {click: "﹦"}
+      - {click: "﹫"}
+      - {click: "﹠"}
+      - {click: "﹩"}
+      - {click: "﹡"}
+      - {click: "﹟"}
+      - {click: Keyboard_default, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Buttons_zhongfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Buttons_yingfu, width: 20}
+      - {click: Keyboard_number, width: 20}
+      - {click: BackSpace, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+    name: "中符2"
     width: 10
-  bqfh3:
+
+  yingfu:
     ascii_mode: 1
     author: "风花絮"
     height: 30
-    keys: [{click: ","}, {click: .}, {click: "?"}, {click: "!"}, {click: Keyboard_symbols, key_text_size: 16, width: 20}, {click: ":"}, {click: "/"}, {click: "@"}, {click: ";"}, {click: "…"}, {click: "\""}, {click: "'"}, {click: "~"}, {click: "*"}, {click: "&"}, {click: "^"}, {click: "$"}, {click: "\\"}, {click: "|"}, {click: "#"}, {click: "(){Left}", width: 10}, {click: "<>{Left}", width: 10}, {click: "{}{Left}", width: 10}, {click: "[]{Left}", width: 10}, {click: "`", width: 10}, {click: "%", width: 10}, {click: "+", width: 10}, {click: "-", width: 10}, {click: "=", width: 20}, {click: Keyboard_default, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}, {click: Keyboard_bqsy1, width: 20}, {click: Keyboard_bqsy2, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}, {click: Keyboard_number, width: 20}, {click: BackSpace, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}]
-    name: "表情键3"
+    keys:
+      - {click: ","}
+      - {click: "."}
+      - {click: "?"}
+      - {click: "!"}
+      - {click: Keyboard_symbols, key_text_size: 16, width: 20}
+      - {click: ":"}
+      - {click: "`"}
+      - {click: "~"}
+      - {click: ";"}
+      - {click: "…"}
+      - {click: "\""}
+      - {click: "'"}
+      - {click: "@"}
+      - {click: "*"}
+      - {click: "&"}
+      - {click: "^"}
+      - {click: "$"}
+      - {click: "%"}
+      - {click: "|"}
+      - {click: "#"}
+      - {click: "(){Left}", width: 10}
+      - {click: "<>{Left}", width: 10}
+      - {click: "{}{Left}", width: 10}
+      - {click: "[]{Left}", width: 10}
+      - {click: "/", width: 10}
+      - {click: "\\", width: 10}
+      - {click: "+", width: 10}
+      - {click: "-", width: 10}
+      - {click: "×", width: 10}
+      - {click: "÷", width: 10}
+      - {click: Keyboard_default, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Buttons_zhongfu, width: 20}
+      - {click: Buttons_yingfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Keyboard_number, width: 20}
+      - {click: BackSpace, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+    name: "英符"
     width: 20
     
 android_keys:
@@ -654,7 +801,7 @@ preset_keys:
   Keyboard_switch: {label: 键盘, functional: true, send: Eisu_toggle, select: .next}
   Keyboard_number: {label: 123, preview: "\uE012", functional: true, send: Eisu_toggle, select: number}
   Keyboard_numberb: {label: "\uE1C1", functional: false, send: Eisu_toggle, select: numberb}
-  Keyboard_symbols: {label: "\uE01C", functional: false, send: Eisu_toggle, select: symbols}
+  Keyboard_symbols: {label: "\uE01C", functional: true, send: Eisu_toggle, select: symbols}
   Keyboard_next: {label: 后退, functional: false, send: Eisu_toggle, select: .next}
   Keyboard_last: {label: "\uE031", functional: false, send: Eisu_toggle, select: .last}
   Keyboard_last_lock: {label: "\uE073", send: Eisu_toggle, select: .last_lock}
@@ -722,13 +869,12 @@ preset_keys:
   Meituan: {label: "\uE641", send: function, command: run, option: "com.sankuai.meituan.takeoutnew"}
   Eleme: {label: "\uE642", send: function, command: run, option: "me.ele"}
 
-   # 表情键自定义
-  Keyboard_bqfh: {label: "\uE019", functional: false, send: Eisu_toggle, select: bqfh1}
-  Keyboard_bqfh1: {label: "上页", functional: false, send: Eisu_toggle, select: bqfh1}
-  Keyboard_bqfh2: {label: "下页", functional: false, send: Eisu_toggle, select: bqfh2, key_text_size: "14"}
-  Keyboard_bqfh3: {label: "\uE019", functional: false, send: Eisu_toggle, select: bqfh3, key_text_size: "14"}
-  Keyboard_bqsy1: {label: "中符", functional: false, send: Eisu_toggle, select: bqfh1, key_text_size: "14"}
-  Keyboard_bqsy2: {label: "英符", functional: false, send: Eisu_toggle, select: bqfh3, key_text_size: "14"}
+   # 符号键盘
+  Keyboard_zhongfu1: {label: "上页", functional: true, send: Eisu_toggle, select: zhongfu1}
+  Keyboard_zhongfu2: {label: "下页", functional: true, send: Eisu_toggle, select: zhongfu2, key_text_size: "14"}
+  Keyboard_yingfu: {label: "\uE019", functional: false, send: Eisu_toggle, select: yingfu, key_text_size: "14"}
+  Buttons_zhongfu: {label: "中符", functional: false, send: Eisu_toggle, select: zhongfu1, key_text_size: "14"}
+  Buttons_yingfu: {label: "英符", functional: false, send: Eisu_toggle, select: yingfu, key_text_size: "14"}
 
   #扩展符号
   符号: {text: '{Escape}/fh', label: 符号, functional: false}
