@@ -4,6 +4,6 @@
 
 —九宫拼音：使用袖珍九宫拼音方案
 
-—五笔双键：参照trime wiki文末案例方案配置
+—五笔双键：参照trime wiki文末[案例](https://github.com/osfans/trime/wiki/五笔双键配置案例详解(一)-准备篇)方案配置
 
-—附加字根拆分滤镜、[万象](https://amzxyz.github.io/）)手动排序候选词
+—附加字根拆分滤镜、[万象](https://amzxyz.github.io/)手动排序候选词
