@@ -6,4 +6,4 @@
 
 —五笔双键：参照trime wiki文末案例方案配置
 
-—附加字根拆分滤镜、万象手动排序候选词lua（https://amzxyz.github.io/）
+—附加字根拆分滤镜、[万象](https://amzxyz.github.io/）)手动排序候选词
