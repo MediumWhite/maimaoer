@@ -1,7 +1,7 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "5.0"
+config_version: "5.2"
 name: "树新风"
 author: "讲文明"
 
@@ -304,7 +304,7 @@ preset_keyboards:
       - {click: o, long_click: 9}
       - {click: p, long_click: 0}
     #第二行
-      - {width: 5}
+      - {click: Left, width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
       - {click: a, long_click: select_all}
       - {click: s, long_click: "/"}
       - {click: d, long_click: "\\"}
@@ -314,7 +314,7 @@ preset_keyboards:
       - {click: j, long_click: "'"}
       - {click: k, long_click: "["}
       - {click: l, long_click: "]"}
-      - {click: ""} #强制换行
+      - {click: Right, width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
     #第三行
       - {click: Shift_L, long_click: Shift_L, label_symbol: ' ', composing: delimiter, swipe_up: RepeatCommit, width: 12}
       - {click: z, long_click: "`", width: 11}
@@ -359,13 +359,13 @@ preset_keyboards:
       - {click: u, label: "U   I", long_click: ":", swipe_right: i, swipe_down: 4, key_text_size: 22}
       - {click: o, label: "O   P", long_click: "、", swipe_right: p, swipe_down: 5, key_text_size: 22}
     #第二行
-      - {width: 5}
+      - {click: Left, width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
       - {click: a, label: "A   S", long_click: "(){Left}", swipe_right: s, swipe_down: 6, width: 18, key_text_size: 22}
       - {click: d, label: "D   F", long_click: "@", swipe_up: Date, swipe_right: f, swipe_down: 7, width: 18, key_text_size: 22}
       - {click: g, label: "G   H", long_click: '"', swipe_right: h, swipe_down: 8, width: 18, key_text_size: 22}
       - {click: j, label: "J   K", long_click: "/", swipe_up: ChineseDate, swipe_right: k, swipe_down: 9, width: 18, key_text_size: 22}
       - {click: l, long_click: "#", swipe_left: Ⅰ, swipe_right: Ⅱ, swipe_down: 0, width: 17, key_text_size: 22}
-      - {click: ""} #强制换行
+      - {click: Right, width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
     #第三行
       - {click: Shift_L, long_click: Shift_L, label_symbol: ' ', composing: delimiter, swipe_up: RepeatCommit, swipe_down: Tab, width: 14}
       - {click: x, label: "Z   X", long_click: cut, swipe_left: z, swipe_up: select_cut, width: 18, key_text_size: 22}
@@ -433,10 +433,10 @@ preset_keyboards:
       "keys/@15":
         click: Keyboard_default
         width: 17
-        key_back_color: rbc
-        hilited_key_back_color: rhbc
-        key_text_color: rtc
-        hilited_key_text_color: rhtc
+        # key_back_color: rbc
+        # hilited_key_back_color: rhbc
+        # key_text_color: rtc
+        # hilited_key_text_color: rhtc
       "keys/@16":
         click: ','
       "keys/@17":
@@ -477,8 +477,8 @@ preset_keyboards:
       - {click: 无能键, label: 拼音, key_text_size: 12, height: 8, key_text_offset_y: -3, key_back_color: *color7, hilited_key_back_color: *color7}
       - {width: 100, height: 25}
       - {width: 33}
-      - {click: Keyboard_default, width: 34, height: 18}
-      - {width: 100, height: 2}
+      - {click: Keyboard_default, width: 34, height: 15}
+      - {width: 100, height: 4}
     name: "键盘布局"
 
   symbols:
@@ -512,10 +512,10 @@ preset_keyboards:
       - {click: 麻将, long_click: 骰子, key_text_size: "16"}
       - {click: 象棋, long_click: 扑克, key_text_size: "16"}
       - {click: 俄语, long_click: 俄语大写, key_text_size: "16"}
-      - {click: Keyboard_default, height: 24, width: 20, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc}
+      - {click: Keyboard_default, height: 24, width: 20}
       - {click: Keyboard_number, width: 20}
       - {click: space1, width: 20}
-      - {click: BackSpace, composing: Escape, swipe_left: Clear, width: 20}
+      - {click: BackSpace, swipe_up: Escape, swipe_left: Clear, width: 20}
       - {click: Return1, width: 20, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc}
     name: "扩展符号"
 
@@ -575,11 +575,11 @@ preset_keyboards:
       - {click: "‐"}
       - {click: "￣"}
       - {click: "¯"}
-      - {click: Keyboard_default, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Keyboard_default, width: 20}
       - {click: Buttons_zhongfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
-      - {click: Buttons_yingfu, width: 20}
       - {click: Keyboard_number, width: 20}
-      - {click: BackSpace, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Buttons_yingfu, width: 20}
+      - {click: BackSpace, width: 20}
     name: "中符1"
   zhongfu2:
     author: "风花絮"
@@ -637,11 +637,11 @@ preset_keyboards:
       - {click: "﹩"}
       - {click: "﹡"}
       - {click: "﹟"}
-      - {click: Keyboard_default, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Keyboard_default, width: 20}
       - {click: Buttons_zhongfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
-      - {click: Buttons_yingfu, width: 20}
       - {click: Keyboard_number, width: 20}
-      - {click: BackSpace, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Buttons_yingfu, width: 20}
+      - {click: BackSpace, width: 20}
     name: "中符2"
 
   yingfu:
@@ -680,11 +680,11 @@ preset_keyboards:
       - {click: "-", width: 10}
       - {click: "×", width: 10}
       - {click: "÷", width: 10}
-      - {click: Keyboard_default, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Keyboard_default, width: 20}
       - {click: Buttons_zhongfu, width: 20}
-      - {click: Buttons_yingfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
       - {click: Keyboard_number, width: 20}
-      - {click: BackSpace, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: Buttons_yingfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
+      - {click: BackSpace, width: 20}
     name: "英符"
 
 android_keys:
@@ -761,10 +761,10 @@ preset_keys:
   Page_Down: {label: "\uE0dd", send: Page_Down, functional: false}
   Left1: {label: '⇦', send: Control+Left, repeatable: true, functional: false}
   Right1: {label: '⇨', send: Control+Right, repeatable: true, functional: false}
-  Left: {label: '←', send: Left, repeatable: true, functional: false}
+  Left: {label: '‹', send: Left, repeatable: true, functional: false}
   Down: {label: '↓', send: Down, repeatable: true, functional: false}
   Up: {label: '↑', send: Up, repeatable: true, functional: false}
-  Right: {label: '→', send: Right, repeatable: true, functional: false}
+  Right: {label: '›', send: Right, repeatable: true, functional: false}
   select_all: {label: "☑", functional: false, send: Control+a}
   cut: {label: "✁", functional: false, send: Control+x}
   copy: {label: "❐", functional: false, send: Control+c}
@@ -797,7 +797,7 @@ preset_keys:
   Keyboard_pinyin_jiugong: {label: "\uE10E", functional: false, send: Eisu_toggle, select: pinyin_jiugong}
   Keyboard_wubi86_double_key: {label: "\uE10D", functional: false, send: Eisu_toggle, select: wubi86_double_key}
   Keyboard_ascii: {label: abc, functional: true, send: Eisu_toggle, select: .ascii}
-  Keyboard_default: {label: "\uE030", functional: false, send: Eisu_toggle, select: .default}
+  Keyboard_default: {label: "\uE030", functional: true, send: Eisu_toggle, select: .default}
   Keyboard_switch: {label: 键盘, functional: true, send: Eisu_toggle, select: .next}
   Keyboard_number: {label: 123, preview: "\uE012", functional: true, send: Eisu_toggle, select: number}
   Keyboard_symbols: {label: "\uE01C", functional: true, send: Eisu_toggle, select: symbols}
