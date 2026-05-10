@@ -1,7 +1,7 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "5.2"
+config_version: "5.3"
 name: "树新风"
 author: "讲文明"
 
@@ -14,7 +14,7 @@ colors:
   5: &color5 0xff838383   #深灰
   6: &color6 0xff3266a0   #深蓝
   7: &color7 0x00        #透明
-  8: &color8 0xff0080ff    #亮蓝
+  8: &color8 0xff0080ff   #亮蓝
   9: &color9 gl.9.png     #玻璃绿
   10: &color10 bl.9.png   #玻璃
 #配色方案
@@ -24,7 +24,7 @@ preset_color_schemes:
     dark_scheme: glass
     keyboard_back_color: *color3 #键盘背景
   #按键
-    key_border_color: *color3 #按键边框
+    key_border_color: *color7 #按键边框
     key_text_color: *color1 #按键文本
     key_symbol_color: *color5 #按键符号
     key_back_color: bai.9.png #按键背景
@@ -81,6 +81,7 @@ preset_color_schemes:
 #保留一项，防止其他主题使用__include时无法加载
 fallback_colors: #后备配色
   candidate_background: key_back_color #候选栏背景
+  hilited_candidate_button_color: *color7 #工具按钮高亮背景色
   # root_background: keyboard_back_color # 整个键盘区+候选栏的背景图/色
   # long_text_back_color: text_back_color #长文本按键的背景(剪贴板）
 
@@ -89,8 +90,8 @@ style:
 #候选
   candidate_text_size: 20 #候选字号
   candidate_padding: 15 #候选项内边距
-  candidate_spacing: 1 #候选间隔
-  candidate_view_height: 29 #候选区高度
+  candidate_spacing: 0 #候选间隔
+  candidate_view_height: 27 #候选区高度
   candidate_corner_radius: 11 #候选背景块圆角半径
   candidate_text_vertical_bias: 0.5 #候选垂直偏移
 #提示
@@ -119,22 +120,22 @@ style:
   reset_ascii_mode_on_focus_change: false #焦点变更弹起软键盘时重置 ascii_mode
   horizontal_gap: 2 #按键间距
   vertical_gap: 3 #按键行距
-  keyboard_height: 250 #锁定键盘高度
+  keyboard_height: 245 #锁定键盘高度
   keyboard_height_land: 220 #锁定横屏键盘高度
   keyboard_padding_bottom: 15 #竖屏底边距
   keyboard_padding_land_bottom: 8 #横屏底边距
   keyboard_padding: 0 #竖屏两侧边距
   keyboard_padding_land: 70 #横屏两侧边距
 #[字体]
-  key_font: [iconfont.ttf] #键盘字体
+  key_font: [iconfont.ttf] #按键字体
   symbol_font: [iconfont.ttf] #符号字体
   popup_font: [iconfont.ttf] #气泡字体
 #气泡
-  popup_width: 45 #气泡宽度
-  popup_height: 45 #preview气泡高度
-  popup_key_height: 47 #内键气泡高度
-  popup_bottom_margin: 73 #气泡标高
-  popup_text_size: 25 #气泡字号
+  popup_width: 40 #气泡宽度
+  popup_height: 40 #preview气泡高度
+  popup_key_height: 42 #内键气泡高度
+  popup_bottom_margin: 70 #气泡标高
+  popup_text_size: 23 #气泡字号
 
 #预编辑文本
 preedit: #预编辑文本视图参数
@@ -169,119 +170,103 @@ tool_bar:
   back_style: "\uE0A7" #返回按钮样式
 #左侧固定主按钮
   primary_button:
-    size: [60, 40] #视图组件整体宽高
+    size: [56, 40] #视图组件整体宽高
     background: #背景样式设置
       type: rectangle #高亮形状(可选:circle|rectangle)
       corner_radius: 10 #圆角半径
       normal: *color7 #正常状态背景颜色
-      highlight: *color3 #高亮状态背景色
-      vertical_inset: 5 #垂直方向内缩量
-      horizontal_inset: 8 #水平方向内缩量
+      highlight: *color7 #高亮状态背景色
+      # vertical_inset: 5 #垂直方向内缩量
+      # horizontal_inset: 11 #水平方向内缩量
     foreground: #前景内容设置
       style: "" #（内置图标以ic@开头）前景样式为空，将显示为 action 的 label
-      normal: candidate_text_color #正常状态前景色
-      # highlight:     #高亮状态前景色
+      normal: *color1 #正常状态前景色
+      highlight: *color5 #高亮状态前景色
       padding: 7 #前景内容与背景边界的内边距
       font_size: 24 #字体尺寸
     action: menu_keyboard #按钮点击事件
     long_press_action: Settings #按钮长按事件
 #隐藏键盘
   hide: &hide
-    size: [50, 40]
-    background:
-      type: rectangle
-      corner_radius: 10
-      normal: *color7
-      highlight: *color3
-      # vertical_inset: 0
-      horizontal_inset: 8
+    size: [49, 40]
+    background: {__include: /tool_bar/primary_button/background}
     foreground:
       style: ""
-      padding: 1
+      normal: {__include: /tool_bar/primary_button/foreground/normal}
+      highlight: {__include: /tool_bar/primary_button/foreground/highlight}
+      padding: 0
       font_size: 33
     action: Hide
-#键盘布局&方案菜单
-  layout: &layout
-    size: [42, 40]
-    background:
-      type: rectangle
-      corner_radius: 10
-      normal: *color7
-      highlight: *color3
-    foreground:
-      style: ""
-      padding: 8
-      font_size: 22
-    action: Keyboard_layout
-    long_press_action: Menu
 #符号&扩展符号
   yingfu: &yingfu
-    size: [42, 40]
-    background:
-      type: rectangle
-      corner_radius: 10
-      normal: *color7
-      highlight: *color3 
+    size: [43, 40]
+    background: {__include: /tool_bar/primary_button/background}
     foreground:
       style: "\uE018"
+      normal: {__include: /tool_bar/primary_button/foreground/normal}
+      highlight: {__include: /tool_bar/primary_button/foreground/highlight}
       padding: 9
       font_size: 20
     action: Keyboard_yingfu
     long_press_action: Keyboard_symbols
 #剪贴板
   clip: &clip
-    size: [42, 40]
-    background:
-      type: rectangle
-      corner_radius: 10
-      normal: *color7
-      highlight: *color3
+    size: [43, 40]
+    background: {__include: /tool_bar/primary_button/background}
     foreground:
       style: ""
+      normal: {__include: /tool_bar/primary_button/foreground/normal}
+      highlight: {__include: /tool_bar/primary_button/foreground/highlight}
       padding: 9
       font_size: 20
     action: clipboard_window
-#中/英切换
-  toggle: &toggle
-    size: [42, 40]
-    background:
-      type: rectangle
-      corner_radius: 10
-      normal: *color7
-      highlight: *color3
-    foreground:
-      style: "\uE076"
-      padding: 9
-      font_size: 22
-    action: Keyboard_ascii
 #恢复
   redo: &redo
-    size: [43, 40]
-    background:
-      type: rectangle
-      corner_radius: 10
-      normal: *color7
-      highlight: *color3
+    size: [44, 40]
+    background: {__include: /tool_bar/primary_button/background}
     foreground:
       style: ""
-      padding: 11
+      normal: {__include: /tool_bar/primary_button/foreground/normal}
+      highlight: {__include: /tool_bar/primary_button/foreground/highlight}
+      padding: 10
       font_size: 18
     action: redo
 #撤消
   undo: &undo
-    size: [43, 40]
-    background:
-      type: rectangle
-      corner_radius: 10
-      normal: *color7
-      highlight: *color3
+    size: [44, 40]
+    background: {__include: /tool_bar/primary_button/background}
     foreground:
       style: ""
-      padding: 11
+      normal: {__include: /tool_bar/primary_button/foreground/normal}
+      highlight: {__include: /tool_bar/primary_button/foreground/highlight}
+      padding: 10
       font_size: 18
     action: undo
+#键盘布局&方案菜单
+  layout: &layout
+    size: [43, 40]
+    background: {__include: /tool_bar/primary_button/background}
+    foreground:
+      style: ""
+      normal: {__include: /tool_bar/primary_button/foreground/normal}
+      highlight: {__include: /tool_bar/primary_button/foreground/highlight}
+      padding: 8
+      font_size: 22
+    action: Keyboard_layout
+    long_press_action: Menu
+#中/英切换
+  toggle: &toggle
+    size: [44, 40]
+    background: {__include: /tool_bar/primary_button/background}
+    foreground:
+      style: "\uE076"
+      normal: {__include: /tool_bar/primary_button/foreground/normal}
+      highlight: {__include: /tool_bar/primary_button/foreground/highlight}
+      padding: 9
+      font_size: 22
+    action: Keyboard_ascii
 #右侧按钮列表（从右向左排列）
-  buttons: [*hide, *layout, *yingfu, *clip, *toggle, *redo, *undo]
+  buttons: [*hide, *yingfu, *clip, *redo, *undo, *layout, *toggle]
 
 #键盘布局
 preset_keyboards:
@@ -304,7 +289,7 @@ preset_keyboards:
       - {click: o, long_click: 9}
       - {click: p, long_click: 0}
     #第二行
-      - {click: Left, width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
+      - {click: Left, popup: [Pin, Forward], width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
       - {click: a, long_click: select_all}
       - {click: s, long_click: "/"}
       - {click: d, long_click: "\\"}
@@ -314,7 +299,7 @@ preset_keyboards:
       - {click: j, long_click: "'"}
       - {click: k, long_click: "["}
       - {click: l, long_click: "]"}
-      - {click: Right, width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
+      - {click: Right, popup: [Reset, Backward], width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
     #第三行
       - {click: Shift_L, long_click: Shift_L, label_symbol: ' ', composing: delimiter, swipe_up: RepeatCommit, width: 12}
       - {click: z, long_click: "`", width: 11}
@@ -327,9 +312,9 @@ preset_keyboards:
       - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, width: 15}
     #第四行
       - {click: Keyboard_number, popup: [CALCULATOR, Netdisk, TrimeWiki, Nightly, TrimeApp, MT, File_explorer, Weixin, Alipay, Jingdong, Meituan, Eleme, Hand_writing, Notes, Bing], composing: 4, width: 15}
-      - {click: ",", label: " ，️", swipe_up: "?", composing: 3, popup: [Pin, Reset], width: 12}
+      - {click: ",", label: " ，️", swipe_up: "?", composing: 3, width: 12}
       - {click: space, label_symbol: 中, key_symbol_offset_x: 75, swipe_up: Up, swipe_down: Down, swipe_left: Left, swipe_right: Right, width: 46}
-      - {click: ".", label: " 。", swipe_up: "!", composing: 3, popup: [Forward, Backward], width: 12}
+      - {click: ".", label: " 。", swipe_up: "!", composing: 2, width: 12}
       - {click: Return, popup: [Theme_settings, set_color_default, set_color_glass, set_theme], key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 15}
     name: "26键默认布局"
 
@@ -359,13 +344,13 @@ preset_keyboards:
       - {click: u, label: "U   I", long_click: ":", swipe_right: i, swipe_down: 4, key_text_size: 22}
       - {click: o, label: "O   P", long_click: "、", swipe_right: p, swipe_down: 5, key_text_size: 22}
     #第二行
-      - {click: Left, width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
+      - {click: Left, popup: [Pin, Forward], width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
       - {click: a, label: "A   S", long_click: "(){Left}", swipe_right: s, swipe_down: 6, width: 18, key_text_size: 22}
       - {click: d, label: "D   F", long_click: "@", swipe_up: Date, swipe_right: f, swipe_down: 7, width: 18, key_text_size: 22}
       - {click: g, label: "G   H", long_click: '"', swipe_right: h, swipe_down: 8, width: 18, key_text_size: 22}
       - {click: j, label: "J   K", long_click: "/", swipe_up: ChineseDate, swipe_right: k, swipe_down: 9, width: 18, key_text_size: 22}
       - {click: l, long_click: "#", swipe_left: Ⅰ, swipe_right: Ⅱ, swipe_down: 0, width: 17, key_text_size: 22}
-      - {click: Right, width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
+      - {click: Right, popup: [Reset, Backward], width: 5, key_back_color: *color7, hilited_key_back_color: *color7}
     #第三行
       - {click: Shift_L, long_click: Shift_L, label_symbol: ' ', composing: delimiter, swipe_up: RepeatCommit, swipe_down: Tab, width: 14}
       - {click: x, label: "Z   X", long_click: cut, swipe_left: z, swipe_up: select_cut, width: 18, key_text_size: 22}
@@ -375,9 +360,9 @@ preset_keyboards:
       - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, width: 16}
     #第四行
       - {click: Keyboard_number, composing: 4, popup: [CALCULATOR, Netdisk, TrimeWiki, Nightly, TrimeApp, MT, File_explorer, Weixin, Alipay, Jingdong, Meituan, Eleme, Hand_writing, Notes, Bing], width: 14, key_text_size: 19}
-      - {click: ",", label: " ，️", swipe_up: "?", composing: 3, popup: [Pin, Reset], width: 14, key_text_size: 19}
+      - {click: ",", label: " ，️", swipe_up: "?", composing: 3, width: 14, key_text_size: 19}
       - {click: space, width: 42}
-      - {click: ".", label: " 。", swipe_up: "!", composing: 2, popup: [Forward, Backward], width: 14, key_text_size: 19}
+      - {click: ".", label: " 。", swipe_up: "!", composing: 2, width: 14, key_text_size: 19}
       - {click: Return, popup: [Theme_settings, set_color_default, set_color_glass, set_theme], key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 16}
     name: "五笔86双键"
 
@@ -395,7 +380,7 @@ preset_keyboards:
       - {click: 1, label: "分词", long_click: "]", composing: delimiter, key_text_size: 19}
       - {click: 2, label: abc, long_click: "'", key_text_size: 19}
       - {click: 3, label: def, long_click: "`", key_text_size: 19}
-      - {click: Mode_switch0, composing: Escape, popup: [CALCULATOR, Netdisk, TrimeWiki, Nightly, TrimeApp, MT, File_explorer, Weixin, Alipay, Jingdong, Meituan, Eleme, Hand_writing, Notes, Bing], swipe_up: RepeatCommit, width: 17}
+      - {click: Mode_switch0, popup: [CALCULATOR, Netdisk, TrimeWiki, Nightly, TrimeApp, MT, File_explorer, Weixin, Alipay, Jingdong, Meituan, Eleme, Hand_writing, Notes, Bing], swipe_up: RepeatCommit, width: 17}
     #第二行
       - {click: "-", long_click: "=", width: 17, key_symbol_offset_x: 20}
       - {click: 4, label: ghi, long_click: Home, key_text_size: 19}
@@ -471,7 +456,7 @@ preset_keyboards:
       - {click: 无能键, label: 拼音, key_text_size: 12, height: 8, key_text_offset_y: -3, key_back_color: *color7, hilited_key_back_color: *color7}
       - {width: 100, height: 25}
       - {width: 34}
-      - {click: Keyboard_default, label: "ic@close" , width: 30, height: 17}
+      - {click: Keyboard_default, width: 30, height: 17}
       - {width: 100, height: 2}
     name: "键盘布局"
 
@@ -562,7 +547,7 @@ preset_keyboards:
       - {click: "﹋"}
       - {click: "﹌"}
       - {click: "︴"}
-      - {click: "々"}
+      - {click: "㞢"}
       - {click: "ᥬᩤ{Left}"}
       - {click: "｜"}
       - {click: "‖"}
@@ -648,7 +633,7 @@ preset_keyboards:
       - {click: "."}
       - {click: "?"}
       - {click: "!"}
-      - {click: Keyboard_symbols, key_text_size: 16, width: 20}
+      - {click: Keyboard_symbols}
       - {click: ":"}
       - {click: "`"}
       - {click: "~"}
@@ -674,11 +659,11 @@ preset_keyboards:
       - {click: "-", width: 10}
       - {click: "×", width: 10}
       - {click: "÷", width: 10}
-      - {click: Keyboard_default, width: 20}
-      - {click: Buttons_zhongfu, width: 20}
-      - {click: Keyboard_number, width: 20}
-      - {click: Buttons_yingfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
-      - {click: BackSpace, width: 20}
+      - {click: Keyboard_default}
+      - {click: Buttons_zhongfu}
+      - {click: Keyboard_number}
+      - {click: Buttons_yingfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc}
+      - {click: BackSpace}
     name: "英符"
 
 android_keys:
@@ -755,10 +740,10 @@ preset_keys:
   Page_Down: {label: "\uE0dd", send: Page_Down, functional: false}
   Left1: {label: '⇦', send: Control+Left, repeatable: true, functional: false}
   Right1: {label: '⇨', send: Control+Right, repeatable: true, functional: false}
-  Left: {label: '‹', send: Left, repeatable: true, functional: false}
+  Left: {label: '‹', send: Left, repeatable: false, functional: false}
+  Right: {label: '›', send: Right, repeatable: false, functional: false}
   Down: {label: '↓', send: Down, repeatable: true, functional: false}
   Up: {label: '↑', send: Up, repeatable: true, functional: false}
-  Right: {label: '›', send: Right, repeatable: true, functional: false}
   select_all: {label: "☑", functional: false, send: Control+a}
   cut: {label: "✁", functional: false, send: Control+x}
   copy: {label: "❐", functional: false, send: Control+c}
@@ -837,7 +822,7 @@ preset_keys:
 #trime命令
   ChineseDate: {label: '农历', send: function, command: date, option: 'zh_CN@calendar=chinese'} #农历等日期（>=Android 7.0）：date 语言@calendar=历法 格式。具体参见https://developer.android.com/reference/android/icu/util/Calendar.html
   Date: {label: 日期, send: function, command: date, option: "yyyy.MM.dd"}
-  Time: {label: 時間, send: function, command: date, option: "HH:mm:ss"} #時間： date 格式
+  Time: {label: 時間, send: function, command: date, option: "HH:mm:ss"}
   TrimeApp: {label: "\uE03E", send: function, command: run, option: "com.osfans.trime"} #運行程序: run 包名
   TrimeCmp: {label: 組件, send: function, command: run, option: "com.osfans.trime/.ui.main.PrefMainActivity"} #運行程序指定組件: run 包名/組件名
   TrimeWiki: {command: run, label: "\uE11B", option: "https://github.com/osfans/trime/wiki/Theme-Configuration-(New)", send: function} #trime详解
