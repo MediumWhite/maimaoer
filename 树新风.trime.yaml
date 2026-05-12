@@ -113,14 +113,14 @@ style:
   key_symbol_offset_x: 10 #上标左右偏移
   key_symbol_offset_y: 5 #上标上下偏移
   key_hint_offset_x: 0 #下标左右偏移
-  key_hint_offset_y: -3 #下标上下偏移
+  key_hint_offset_y: -5 #下标上下偏移
   key_press_offset_x: 2 #按下横向偏移
   key_press_offset_y: 2 #按下纵向偏移
 #键盘
   reset_ascii_mode_on_focus_change: false #焦点变更弹起软键盘时重置 ascii_mode
   horizontal_gap: 2 #按键间距
   vertical_gap: 3 #按键行距
-  keyboard_height: 245 #锁定键盘高度
+  keyboard_height: 250 #锁定键盘高度
   keyboard_height_land: 220 #锁定横屏键盘高度
   keyboard_padding_bottom: 15 #竖屏底边距
   keyboard_padding_land_bottom: 8 #横屏底边距
@@ -165,7 +165,7 @@ window:
 
 #工具栏
 tool_bar:
-  button_spacing: 8 #按钮间距
+  button_spacing: 10 #按钮间距
   button_font: [iconfont.ttf] #按钮字体
   back_style: "\uE0A7" #返回按钮样式
 #左侧固定主按钮
@@ -183,12 +183,12 @@ tool_bar:
       normal: *color1 #正常状态前景色
       highlight: *color5 #高亮状态前景色
       padding: 7 #前景内容与背景边界的内边距
-      font_size: 24 #字体尺寸
+      font_size: 23 #字体尺寸
     action: menu_keyboard #按钮点击事件
     long_press_action: Settings #按钮长按事件
 #隐藏键盘
   hide: &hide
-    size: [49, 40]
+    size: [47, 40]
     background: {__include: /tool_bar/primary_button/background}
     foreground:
       style: ""
@@ -228,8 +228,8 @@ tool_bar:
       style: ""
       normal: {__include: /tool_bar/primary_button/foreground/normal}
       highlight: {__include: /tool_bar/primary_button/foreground/highlight}
-      padding: 10
-      font_size: 18
+      padding: 9
+      font_size: 19
     action: redo
 #撤消
   undo: &undo
@@ -239,8 +239,8 @@ tool_bar:
       style: ""
       normal: {__include: /tool_bar/primary_button/foreground/normal}
       highlight: {__include: /tool_bar/primary_button/foreground/highlight}
-      padding: 10
-      font_size: 18
+      padding: 9
+      font_size: 19
     action: undo
 #键盘布局&方案菜单
   layout: &layout
@@ -259,11 +259,11 @@ tool_bar:
     size: [44, 40]
     background: {__include: /tool_bar/primary_button/background}
     foreground:
-      style: "\uE076"
+      style: "\uE06E"
       normal: {__include: /tool_bar/primary_button/foreground/normal}
       highlight: {__include: /tool_bar/primary_button/foreground/highlight}
       padding: 9
-      font_size: 22
+      font_size: 21
     action: Keyboard_ascii
 #右侧按钮列表（从右向左排列）
   buttons: [*hide, *yingfu, *clip, *redo, *undo, *layout, *toggle]
@@ -313,7 +313,7 @@ preset_keyboards:
     #第四行
       - {click: Keyboard_number, popup: [CALCULATOR, Netdisk, TrimeWiki, Nightly, TrimeApp, MT, File_explorer, Weixin, Alipay, Jingdong, Meituan, Eleme, Hand_writing, Notes, Bing], composing: 4, width: 15}
       - {click: ",", label: " ，️", swipe_up: "?", composing: 3, width: 12}
-      - {click: space, label_symbol: 中, key_symbol_offset_x: 75, swipe_up: Up, swipe_down: Down, swipe_left: Left, swipe_right: Right, width: 46}
+      - {click: space, hint: 中, key_hint_offset_x: 75, swipe_up: Up, swipe_down: Down, swipe_left: Left, swipe_right: Right, width: 46}
       - {click: ".", label: " 。", swipe_up: "!", composing: 2, width: 12}
       - {click: Return, popup: [Theme_settings, set_color_default, set_color_glass, set_theme], key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 15}
     name: "26键默认布局"
@@ -323,7 +323,7 @@ preset_keyboards:
     lock: false
     __include: /preset_keyboards/default
     __patch: 
-      "keys/@32/label_symbol": "\uE073"
+      "keys/@32/hint": "\uE073"
       "ascii_keyboard": ~
     name: "26键英文字母"
 
@@ -380,13 +380,13 @@ preset_keyboards:
       - {click: 1, label: "分词", long_click: "]", composing: delimiter, key_text_size: 19}
       - {click: 2, label: abc, long_click: "'", key_text_size: 19}
       - {click: 3, label: def, long_click: "`", key_text_size: 19}
-      - {click: Mode_switch0, popup: [CALCULATOR, Netdisk, TrimeWiki, Nightly, TrimeApp, MT, File_explorer, Weixin, Alipay, Jingdong, Meituan, Eleme, Hand_writing, Notes, Bing], swipe_up: RepeatCommit, width: 17}
+      - {click: Mode_switch0, popup: [CALCULATOR, Netdisk, TrimeWiki, Nightly, TrimeApp, MT, File_explorer, Weixin, Alipay, Jingdong, Meituan, Eleme, Hand_writing, Notes, Bing], width: 17}
     #第二行
       - {click: "-", long_click: "=", width: 17, key_symbol_offset_x: 20}
       - {click: 4, label: ghi, long_click: Home, key_text_size: 19}
       - {click: 5, label: jkl, long_click: select_all, key_text_size: 19}
       - {click: 6, label: mno, long_click: End, key_text_size: 19}
-      - {click: Shift_L, long_click: Shift_L, label_symbol: " ", width: 17}
+      - {click: Shift_L, long_click: Shift_L, label_symbol: " ", swipe_up: RepeatCommit, width: 17}
     #第三行
       - {click: "/", long_click: "\\", width: 17, key_symbol_offset_x: 20}
       - {click: 7, label: pqrs, long_click: copy, key_text_size: 19}
@@ -438,18 +438,18 @@ preset_keyboards:
     keys: 
       - {width: 100, height: 2}
       - {width: 5}
-      - {click: wubi86_double_key_scheme, key_text_size: 28, key_text_offset_y: 3}
-      - {width: 10}
       - {click: wubi86_scheme, key_text_size: 28, key_text_offset_y: 3}
+      - {width: 10}
+      - {click: wubi86_double_key_scheme, key_text_size: 28, key_text_offset_y: 3}
       - {width: 10}
       - {click: pinyin_jiugong_scheme, key_text_size: 28, key_text_offset_y: 3}
       - {width: 10}
       - {click: pinyin_scheme, key_text_size: 28, key_text_offset_y: 3}
       - {width: 5}
       - {width: 5}
-      - {click: 无能键, label: 双键五笔, key_text_size: 12, height: 8, key_text_offset_y: -3, key_back_color: *color7, hilited_key_back_color: *color7}
-      - {width: 10}
       - {click: 无能键, label: 五笔, key_text_size: 12, height: 8, key_text_offset_y: -3, key_back_color: *color7, hilited_key_back_color: *color7}
+      - {width: 10}
+      - {click: 无能键, label: 双键五笔, key_text_size: 12, height: 8, key_text_offset_y: -3, key_back_color: *color7, hilited_key_back_color: *color7}
       - {width: 10}
       - {click: 无能键, label: 九宫拼音, key_text_size: 12, height: 8, key_text_offset_y: -3, key_back_color: *color7, hilited_key_back_color: *color7}
       - {width: 10}
