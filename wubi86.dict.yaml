@@ -27312,7 +27312,7 @@ encoder:         #造词规则
 囗	lhng	11000
 四	lhng	11000
 皿	lhng	11000
-甲	lhnh	11000
+甲	lhnh	12000
 四壁	lhnk	1490000
 甲乙	lhnn	2620000
 轳	lhnt	11000
@@ -42711,7 +42711,7 @@ encoder:         #造词规则
 徘	tdjd	11000
 矢量	tdjg	5790000
 适量	tdjg	16800000
-刮	tdjh	11000
+刮	tdjh	12000
 乔	tdjj	11000
 知遇	tdjm	737000
 知	tdkg	11000
@@ -42824,13 +42824,11 @@ encoder:         #造词规则
 矫健	tdwv	976000
 乱伦	tdww	7150000
 敌人	tdww	19100000
-私有化	tdwx	1590000
 甜食	tdwy	2460000
 短信	tdwy	112000000
 筹集	tdwy	6660000
 雉	tdwy	11000
 笼	tdxb	11000
-筹组	tdxe	129000
 籍贯	tdxf	4360000
 短线	tdxg	16600000
 矧	tdxh	11000

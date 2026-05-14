@@ -170,7 +170,7 @@ tool_bar:
   back_style: "\uE0A7" #返回按钮样式
 #左侧固定主按钮
   primary_button:
-    size: [56, 40] #视图组件整体宽高
+    size: [55, 40] #视图组件整体宽高
     background: #背景样式设置
       type: rectangle #高亮形状(可选:circle|rectangle)
       corner_radius: 10 #圆角半径
@@ -188,7 +188,7 @@ tool_bar:
     long_press_action: Settings #按钮长按事件
 #隐藏键盘
   hide: &hide
-    size: [47, 40]
+    size: [46, 40]
     background: {__include: /tool_bar/primary_button/background}
     foreground:
       style: ""
@@ -229,7 +229,7 @@ tool_bar:
       normal: {__include: /tool_bar/primary_button/foreground/normal}
       highlight: {__include: /tool_bar/primary_button/foreground/highlight}
       padding: 9
-      font_size: 19
+      font_size: 19.5
     action: redo
 #撤消
   undo: &undo
@@ -240,7 +240,7 @@ tool_bar:
       normal: {__include: /tool_bar/primary_button/foreground/normal}
       highlight: {__include: /tool_bar/primary_button/foreground/highlight}
       padding: 9
-      font_size: 19
+      font_size: 19.5
     action: undo
 #键盘布局&方案菜单
   layout: &layout
@@ -259,11 +259,11 @@ tool_bar:
     size: [44, 40]
     background: {__include: /tool_bar/primary_button/background}
     foreground:
-      style: "\uE06E"
+      style: "\uE076"
       normal: {__include: /tool_bar/primary_button/foreground/normal}
       highlight: {__include: /tool_bar/primary_button/foreground/highlight}
       padding: 9
-      font_size: 21
+      font_size: 22
     action: Keyboard_ascii
 #右侧按钮列表（从右向左排列）
   buttons: [*hide, *yingfu, *clip, *redo, *undo, *layout, *toggle]
@@ -558,7 +558,7 @@ preset_keyboards:
       - {click: Buttons_zhongfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
       - {click: Keyboard_number, width: 20}
       - {click: Buttons_yingfu, width: 20}
-      - {click: BackSpace, width: 20}
+      - {click: BackSpace, swipe_up: Escape, swipe_left: Clear, width: 20}
     name: "中符1"
   zhongfu2:
     author: "风花絮"
@@ -620,7 +620,7 @@ preset_keyboards:
       - {click: Buttons_zhongfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc, width: 20}
       - {click: Keyboard_number, width: 20}
       - {click: Buttons_yingfu, width: 20}
-      - {click: BackSpace, width: 20}
+      - {click: BackSpace, swipe_up: Escape, swipe_left: Clear, width: 20}
     name: "中符2"
 
   yingfu:
@@ -663,7 +663,7 @@ preset_keyboards:
       - {click: Buttons_zhongfu}
       - {click: Keyboard_number}
       - {click: Buttons_yingfu, key_back_color: rbc, hilited_key_back_color: rhbc, key_text_color: rtc, hilited_key_text_color: rhtc}
-      - {click: BackSpace}
+      - {click: BackSpace, swipe_up: Escape, swipe_left: Clear}
     name: "英符"
 
 android_keys:
@@ -821,8 +821,8 @@ preset_keys:
 
 #trime命令
   ChineseDate: {label: '农历', send: function, command: date, option: 'zh_CN@calendar=chinese'} #农历等日期（>=Android 7.0）：date 语言@calendar=历法 格式。具体参见https://developer.android.com/reference/android/icu/util/Calendar.html
-  Date: {label: 日期, send: function, command: date, option: "yyyy.MM.dd"}
-  Time: {label: 時間, send: function, command: date, option: "HH:mm:ss"}
+  Date: {label: 日期, send: function, command: date, option: "yyyy年MM月dd日"}
+  Time: {label: 時間, send: function, command: date, option: "HH:mm"}
   TrimeApp: {label: "\uE03E", send: function, command: run, option: "com.osfans.trime"} #運行程序: run 包名
   TrimeCmp: {label: 組件, send: function, command: run, option: "com.osfans.trime/.ui.main.PrefMainActivity"} #運行程序指定組件: run 包名/組件名
   TrimeWiki: {command: run, label: "\uE11B", option: "https://github.com/osfans/trime/wiki/Theme-Configuration-(New)", send: function} #trime详解
